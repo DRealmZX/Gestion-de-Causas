@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Gestion-de-Causas-master">
+  <ClassDiagramComponents>
+    <Class name="Abogado" package="" visibility="public" xPosition="1422.0" yPosition="1229.0">
+      <Fields>
+        <Field name="especialidad" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="especialidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEspecialidad" returnType="String" visibility="public"/>
+        <Method name="setEspecialidad" returnType="void" visibility="public">
+          <Argument type="String" name="especialidad"/>
+        </Method>
+        <Method name="identificarse" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Causa" package="" visibility="public" xPosition="1612.0" yPosition="79.0">
+      <Fields>
+        <Field name="acusador" type="ParteAcusadora" visibility="private"/>
+        <Field name="defensor" type="ParteDefensora" visibility="private"/>
+        <Field name="tipoCausa" type="String" visibility="private"/>
+        <Field name="rit" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ParteAcusadora" name="acusador"/>
+          <Argument type="ParteDefensora" name="defensor"/>
+          <Argument type="String" name="tipoCausa"/>
+          <Argument type="String" name="rit"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getAcusador" returnType="ParteAcusadora" visibility="public"/>
+        <Method name="setAcusador" returnType="void" visibility="public">
+          <Argument type="ParteAcusadora" name="acusador"/>
+        </Method>
+        <Method name="getDefensor" returnType="ParteDefensora" visibility="public"/>
+        <Method name="setDefensor" returnType="void" visibility="public">
+          <Argument type="ParteDefensora" name="defensor"/>
+        </Method>
+        <Method name="getTipoCausa" returnType="String" visibility="public"/>
+        <Method name="setTipoCausa" returnType="void" visibility="public">
+          <Argument type="String" name="tipoCausa"/>
+        </Method>
+        <Method name="getRit" returnType="String" visibility="public"/>
+        <Method name="setRit" returnType="void" visibility="public">
+          <Argument type="String" name="rit"/>
+        </Method>
+        <Method name="mostrarCausa" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="" visibility="public" xPosition="662.0" yPosition="780.0">
+      <Fields>
+        <Field name="testigos" type="ArrayList&lt;Testigo&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+          <Argument type="ArrayList&lt;Testigo&gt;" name="testigos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTestigos" returnType="ArrayList&lt;Testigo&gt;" visibility="public"/>
+        <Method name="setTestigos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Testigo&gt;" name="testigos"/>
+        </Method>
+        <Method name="anadirTestigo" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="eliminarTestigo" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="editarTestigo" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="nuevoRut"/>
+          <Argument type="String" name="nuevoNombre"/>
+        </Method>
+        <Method name="mostrarTestigos" returnType="void" visibility="public"/>
+        <Method name="identificarse" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="gestionDeCausas" package="" visibility="public" xPosition="48.0" yPosition="122.0">
+      <Fields>
+        <Field name="mapaCausas" type="MapaCausas" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="principal" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="EspecialidadAbogados" returnType="void" visibility="public" isStatic="true">
+          <Argument type="MapaCausas" name="mapaCausa"/>
+          <Argument type="String" name="especialidadBuscada"/>
+        </Method>
+        <Method name="AbogadoConMasCausas" returnType="void" visibility="public" isStatic="true">
+          <Argument type="MapaCausas" name="mapaCausa"/>
+        </Method>
+        <Method name="clearScreen" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="pause" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="MapaCausas" package="" visibility="public" xPosition="751.0" yPosition="104.0">
+      <Fields>
+        <Field name="mapaCausas" type="HashMap&lt;String, Causa&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getMapaCausas" returnType="HashMap&lt;String, Causa&gt;" visibility="public"/>
+        <Method name="setMapaCausas" returnType="void" visibility="public">
+          <Argument type="HashMap&lt;String, Causa&gt;" name="newMapa"/>
+        </Method>
+        <Method name="mostrarCausas" returnType="void" visibility="public"/>
+        <Method name="anadirCausa" returnType="void" visibility="public">
+          <Argument type="Causa" name="causa"/>
+        </Method>
+        <Method name="anadirCausaGUI" returnType="void" visibility="public"/>
+        <Method name="editarCausa" returnType="void" visibility="public">
+          <Argument type="String" name="ritAEditar"/>
+        </Method>
+        <Method name="eliminarCausa" returnType="void" visibility="public">
+          <Argument type="String" name="ritAEliminar"/>
+        </Method>
+        <Method name="mostrarCausa" returnType="void" visibility="public">
+          <Argument type="String" name="ritAMostrar"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ParteAcusadora" package="" visibility="public" xPosition="1259.0" yPosition="571.0">
+      <Fields>
+        <Field name="acusador" type="ArrayList&lt;Abogado&gt;" visibility="private"/>
+        <Field name="demandante" type="Cliente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Abogado&gt;" name="acusador"/>
+          <Argument type="Cliente" name="demandante"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getAcusador" returnType="ArrayList&lt;Abogado&gt;" visibility="public"/>
+        <Method name="setAcusador" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Abogado&gt;" name="acusador"/>
+        </Method>
+        <Method name="getDemandante" returnType="Persona" visibility="public"/>
+        <Method name="setDemandante" returnType="void" visibility="public">
+          <Argument type="Cliente" name="demandante"/>
+        </Method>
+        <Method name="anadirAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="especialidad"/>
+        </Method>
+        <Method name="eliminarAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="editarAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="nuevoRut"/>
+          <Argument type="String" name="nuevoNombre"/>
+          <Argument type="String" name="nuevaEspecialidad"/>
+        </Method>
+        <Method name="mostrarAbogados" returnType="void" visibility="public"/>
+        <Method name="editarGUI" returnType="void" visibility="public"/>
+        <Method name="mostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ParteDefensora" package="" visibility="public" xPosition="1970.0" yPosition="867.0">
+      <Fields>
+        <Field name="defensor" type="ArrayList&lt;Abogado&gt;" visibility="private"/>
+        <Field name="demandado" type="Cliente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Abogado&gt;" name="defensor"/>
+          <Argument type="Cliente" name="demandado"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getDefensor" returnType="ArrayList&lt;Abogado&gt;" visibility="public"/>
+        <Method name="setDefensor" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Abogado&gt;" name="defensor"/>
+        </Method>
+        <Method name="getDemandado" returnType="Persona" visibility="public"/>
+        <Method name="setDemandado" returnType="void" visibility="public">
+          <Argument type="Cliente" name="demandado"/>
+        </Method>
+        <Method name="anadirAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="especialidad"/>
+        </Method>
+        <Method name="eliminarAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="editarAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="nuevoRut"/>
+          <Argument type="String" name="nuevoNombre"/>
+          <Argument type="String" name="nuevaEspecialidad"/>
+        </Method>
+        <Method name="mostrarAbogados" returnType="void" visibility="public"/>
+        <Method name="editarGUI" returnType="void" visibility="public"/>
+        <Method name="mostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" isAbstract="true" xPosition="751.0" yPosition="1134.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="rut" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRut" returnType="String" visibility="public"/>
+        <Method name="setRut" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="identificarse" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Testigo" package="" visibility="public" xPosition="190.0" yPosition="790.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="rut" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRut" returnType="String" visibility="public"/>
+        <Method name="setRut" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="mostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="abogadoManejable" package="" visibility="public" xPosition="2211.0" yPosition="377.0">
+      <Methods>
+        <Method name="anadirAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="especialidad"/>
+        </Method>
+        <Method name="eliminarAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+        </Method>
+        <Method name="editarAbogado" returnType="void" visibility="public">
+          <Argument type="String" name="rut"/>
+          <Argument type="String" name="nuevoRut"/>
+          <Argument type="String" name="nuevoNombre"/>
+          <Argument type="String" name="nuevaEspecialidad"/>
+        </Method>
+        <Method name="mostrarAbogados" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mapaCausas" source="gestionDeCausas" target="MapaCausas" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="MapaCausas"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ParteAcusadora" target="abogadoManejable"/>
+    <HasRelation name="acusador" source="ParteAcusadora" target="Abogado" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Abogado&gt;"/>
+    <IsRelation name="is" source="Abogado" target="Persona"/>
+    <HasRelation name="defensor" source="ParteDefensora" target="Abogado" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Abogado&gt;"/>
+    <HasRelation name="testigos" source="Cliente" target="Testigo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Testigo&gt;"/>
+    <HasRelation name="mapaCausas" source="MapaCausas" target="Causa" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Causa&gt;"/>
+    <IsRelation name="is" source="Cliente" target="Persona"/>
+    <HasRelation name="defensor" source="Causa" target="ParteDefensora" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="acusador" source="Causa" target="ParteAcusadora" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ParteDefensora" target="abogadoManejable"/>
+    <HasRelation name="demandado" source="ParteDefensora" target="Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="demandante" source="ParteAcusadora" target="Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
